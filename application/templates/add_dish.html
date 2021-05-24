@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title  %} Adding a new dish {% endblock %}
+
+{% block content %}New dish here
+
+<form action="/new_dish" method="post">
+<div>
+
+    <span >{{ form.name_dish.label}} </span>
+    {% if form.name_dish.errors%}
+        <span > {{ form.name_dish }}</span >
+        {% for error in form.name_dish.errors %}
+            <span > {{ error }}</span >
+        {% endfor%}
+    {% else %}
+        <span > {{ form.name_dish }}</span >
+    {% endif %}
+
+</div>
+
+<div>
+    
+    <span >{{ form.ingredient1.label}} </span>
+    {% if form.ingredient1.errors%}
+        <span > {{ form.ingredient1 }}</span >
+        {% for error in form.ingredient1.errors %}
+             <span > {{ error }}</span >
+        {% endfor%}
+    {% else %}
+        <span > {{ form.ingredient1 }}</span >
+    {% endif %}
+</div>
+
+<div>
+    {{ form.submit}}
+</div>
+
+</form>
+{% endblock %} 

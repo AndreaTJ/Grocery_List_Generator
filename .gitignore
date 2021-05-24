@@ -1,2 +1,5 @@
 application/__pycache__
 venv/
+__pycache__/
+application/data/
+config.py
