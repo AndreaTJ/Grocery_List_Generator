@@ -5,6 +5,8 @@
 {% block content %}New dish here
 
 <form action="/new_dish" method="post">
+{{ form.hidden_tag() }}
+
 <div>
 
     <span >{{ form.name_dish.label}} </span>
@@ -29,6 +31,63 @@
         {% endfor%}
     {% else %}
         <span > {{ form.ingredient1 }}</span >
+    {% endif %}
+
+    <span >{{ form.qty1.label}} </span>
+    {% if form.qty1.errors%}
+        <span > {{ form.qty1 }}</span >
+        {% for error in form.qty1.errors %}
+             <span > {{ error }}</span >
+        {% endfor%}
+    {% else %}
+        <span > {{ form.qty1 }}</span >
+    {% endif %}
+
+
+    {% if form.measure1.errors%}
+        <span > {{ form.measure1 }}</span >
+        {% for error in form.measure1.errors %}
+             <span > {{ error }}</span >
+        {% endfor%}
+    {% else %}
+        <span > {{ form.measure1 }}</span >
+    {% endif %}
+</div>
+
+    
+    
+
+
+<div>
+    
+    <span >{{ form.ingredient2.label}} </span>
+    {% if form.ingredient2.errors%}
+        <span > {{ form.ingredient2 }}</span >
+        {% for error in form.ingredient2.errors %}
+             <span > {{ error }}</span >
+        {% endfor%}
+    {% else %}
+        <span > {{ form.ingredient2 }}</span >
+    {% endif %}
+
+    <span >{{ form.qty2.label}} </span>
+    {% if form.qty2.errors%}
+        <span > {{ form.qty2 }}</span >
+        {% for error in form.qty2.errors %}
+             <span > {{ error }}</span >
+        {% endfor%}
+    {% else %}
+        <span > {{ form.qty2 }}</span >
+    {% endif %}
+
+
+    {% if form.measure2.errors%}
+        <span > {{ form.measure2 }}</span >
+        {% for error in form.measure2.errors %}
+             <span > {{ error }}</span >
+        {% endfor%}
+    {% else %}
+        <span > {{ form.measure2 }}</span >
     {% endif %}
 </div>
 

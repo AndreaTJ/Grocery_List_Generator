@@ -16,25 +16,27 @@ def add_new_dish():
         return render_template ("add_dish.html", form = form)
     
     else:
-        print (request.values.get ("name_dish"))
-        print (request.values.get ("ingredient1"))
         if form.validate():
-            print("Hellooooo")
-            """
+            print("He validado")
+            
             list_ingredients = []
             valing = ""
 
-            for i in (0,5): 
+            for i in range (1,5): 
                 valing= "ingredient"+str(i)
-                Ing = request.value.get("valing")
-                if Ing not in list_ingredients: 
+                print("soy type valing", type(valing))
+                print("I am valinfg", valing)
+                Ing = request.values.get(valing)
+                if Ing not in list_ingredients and Ing != None: 
                     list_ingredients.append (Ing)
-            """
-
-            conn = sqlite3.connect(application/data/dishes_data.db)
+            
+            str1 = ''.join(list_ingredients)
+            print (str1, "Lista de ingredientes")
+            
+            conn = sqlite3.connect("application/data/dishes_data.db")
             cur = conn.cursor()
             query = "INSERT INTO dishes (Name, Ingredients) values (?, ?);"
-            datos = (request.values.get('name_dish'), request.values.get("ingredient1"))
+            datos = (request.values.get('name_dish'), str1)
             try:
                 cur.execute(query, datos)
                 conn.commit()
